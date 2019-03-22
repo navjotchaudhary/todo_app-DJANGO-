@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<style type="text/css" rel="stylesheet">
+    h1{
+        text-align:center;
+        background:skyblue;
+        padding:24px;
+    }
+
+
+    li{
+
+        height:40px;
+    }
+    form{
+    display:inline;
+    }
+
+
+
+</style>
+<h1>your todo's are here</h1>
+<form id="add_item" action = "addTodo/" method="post">
+    {% csrf_token %}
+    <input style={color:'red';} id = "input" type="input" placeholder="add new here!!!!" name = 'content'/>
+    <input type="submit" value = 'add'/></form>
+<ul>
+    {% for todo in all_todo_items %}
+    <li>{{ todo.content }}<form action = "deletetodo/{{ todo.id }}" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value = 'delete'/>
+
+</form>
+</li>
+   {% endfor %}
+
+
+
+</ul>
+
+<script type="text/javascript">
+       
+
+</script>
+
+
+
+</body>
+</html>
