@@ -30,7 +30,7 @@
 <h1>your todo's are here</h1>
 <form id="add_item" action = "addTodo/" method="post">
     {% csrf_token %}
-    <input style={color:'red';} id = "input" type="input" placeholder="add new here!!!!" name = 'content'/>
+    <input style={color:'red';} id = "input" type="input" placeholder="add new here!!!!" required autofocus name = 'content'/>
     <input type="submit" value = 'add'/></form>
 <ul>
     {% for todo in all_todo_items %}
